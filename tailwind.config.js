@@ -19,6 +19,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         main: "url('/main.jpg')",
+        vastu: "url('/vastu.jpg')",
+        bulb: "url('/bulb.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",
