@@ -7,12 +7,21 @@ import WhyUs from "./components/WhyUs";
 import Step from "./components/Step";
 import Footer from "./components/Footer";
 import Buy from "./components/Buy";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({
+         duration: 1000,
+         once: false,
+       })
+ }, [])
   return (
     <main className="w-full">
       <Component />
-      <div className="bg-main ">
+      <div className="bg-main " data-aos="zoom-in-down">
         <div className="bg-opacity-50 bg-black text-center flex flex-col items-center">
           <div className="flex flex-col flex-grow justify-around items-center p-8 md:p-16 lg:p-36 gap-5">
             <div>

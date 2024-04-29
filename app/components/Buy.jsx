@@ -1,8 +1,15 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Buy = () => {
+  useEffect(() => {
+    AOS.init({
+         duration: 1000,
+         once: false,
+       })
+ }, [])
   return (
-    <div class="max-w-sm bg-white border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
+    <div data-aos="fade-up" class="max-w-sm bg-white border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img class="" src="/vastu.jpg" alt="" />
       </a>

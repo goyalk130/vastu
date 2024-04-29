@@ -1,8 +1,15 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const WhyUs = () => {
+  useEffect(() => {
+    AOS.init({
+         duration: 1000,
+         once: false,
+       })
+ }, [])
   return (
-    <div className="group relative z-0 flex flex-col py-20 items-center shadow-lg duration-500 ease-in-out transition-all gap-8  bg-white px-5 lg:">
+    <div data-aos="flip-left" className="group relative z-0 flex flex-col py-20 items-center shadow-lg duration-500 ease-in-out transition-all gap-8  bg-white px-5 lg:">
       <div className="w-16 h-16 aspect-square bg-amber-300 p-2">
         <img src="/chair.png" />
       </div>

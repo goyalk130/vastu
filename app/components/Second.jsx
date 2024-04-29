@@ -1,11 +1,18 @@
 // Import the necessary modules
-import React from "react";
-
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // Define the Second component
 const Second = () => {
+  useEffect(() => {
+    AOS.init({
+         duration: 1000,
+         once: false,
+       })
+ }, [])
   return (
     <div className="p-6  flex flex-col md:flex-row w-full gap-5 lg:gap-10  md:py-20 lg:pt-40 ">
-      <div className=" w-full md:w-1/2 relative lg:px-10">
+      <div className=" w-full md:w-1/2 relative lg:px-10" data-aos="fade-left">
         <div className=" overflow-hidden w-full h-full border-2">
           <img className=" h-52 md:h-full w-full  resize-none  object-cover" src="/budhas.jpg" />
         </div>
@@ -13,7 +20,7 @@ const Second = () => {
             <img src="" />
         </div>
       </div>
-      <div className=" w-full md:w-1/2  flex flex-col justify-center gap-5 lg:px-10 ">
+      <div data-aos="fade-right" className=" w-full md:w-1/2  flex flex-col justify-center gap-5 lg:px-10 ">
         <div>
           <h2 className="text-xl">Introduction</h2>
         </div>
