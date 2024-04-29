@@ -19,7 +19,7 @@ export default function Home() {
        })
  }, [])
   return (
-    <main className="w-full">
+    <main className="w-full overflow-x-hidden">
       <Component />
       <div className="bg-main " data-aos="zoom-in-down">
         <div className="bg-opacity-50 bg-black text-center flex flex-col items-center">
@@ -187,7 +187,7 @@ export default function Home() {
           <Buy />
         </div>
       </div>
-      <div className="bg-bulb p-40 relative">
+      <div className="bg-bulb px-5 py-20 md:p-40 relative">
         <div className="h-full w-full bg-black absolute top-0 z-0 left-0 bg-opacity-30"></div>
         <div className="flex flex-col z-20 relative justify-center items-center gap-10">
           <div>
