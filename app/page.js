@@ -11,12 +11,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import CartUi from "./components/CartUi";
-import {
-  BULL_FRAME,
-  HORSES,
-  Home_Vastu_Kit,
-  
-} from "../lib/Constant/constant";
+import { BULL_FRAME, HORSES, Home_Vastu_Kit } from "../lib/Constant/constant";
 const { createContext } = require("react");
 
 export const productcon = createContext();
@@ -35,7 +30,6 @@ export default function Home() {
       name: HORSES,
       num: 0,
     },
-    
   ]);
   const [opencart, setopencart] = useState(false);
   useEffect(() => {
@@ -46,9 +40,16 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    console.log(state)
-    localStorage.setItem("cart",state)
-  }, [state])
+    console.log(state);
+    try {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", state);
+      }
+    } catch (error) {
+      console.error("Error while setting token in localStorage:", error);
+    }
+    
+  }, [state]);
 
   return (
     <productcon.Provider value={state}>
@@ -146,12 +147,12 @@ export default function Home() {
                 className="bg-green-400 px-3 py-2"
                 onClick={() => {
                   setstate((data) => {
-                    let newdata = data.map(item=>{
-                      if(item.name==Home_Vastu_Kit) {
-                        item.num+=1;
+                    let newdata = data.map((item) => {
+                      if (item.name == Home_Vastu_Kit) {
+                        item.num += 1;
                       }
-                      return item
-                    })
+                      return item;
+                    });
                     return newdata;
                   });
                 }}
@@ -180,12 +181,14 @@ export default function Home() {
               <button
                 className="bg-green-400 px-3 py-2"
                 onClick={() => {
-                  setstate((data) => {let newdata = data.map(item=>{
-                      if(item.name==BULL_FRAME) {
-                        item.num+=1;
+                  setstate((data) => {
+                    let newdata = data.map((item) => {
+                      if (item.name == BULL_FRAME) {
+                        item.num += 1;
                       }
-                    })
-                    return newdata;});
+                    });
+                    return newdata;
+                  });
                 }}
               >
                 Add to Cart
@@ -212,12 +215,14 @@ export default function Home() {
               <button
                 className="bg-green-400 px-3 py-2"
                 onClick={() => {
-                  setstate((data) => {let newdata = data.map(item=>{
-                      if(item.name==HORSES) {
-                        item.num+=1;
+                  setstate((data) => {
+                    let newdata = data.map((item) => {
+                      if (item.name == HORSES) {
+                        item.num += 1;
                       }
-                    })
-                    return newdata;});
+                    });
+                    return newdata;
+                  });
                 }}
               >
                 Add to Cart

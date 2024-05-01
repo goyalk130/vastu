@@ -3,7 +3,15 @@ import React, { useContext, useState } from "react";
 import { productcon } from "../page";
 
 const CartUi = () => {
-   const {state,setState} =  useState(localStorage.getItem("cart"))
+    let arr = []
+    try {
+        if (typeof window !== 'undefined') {
+            arr = localStorage.getItem("cart")
+        }
+    } catch (error) {
+        console.error('Error while setting token in localStorage:', error);
+    }
+   const {state,setState} =  useState(arr)
   return (
     // <div className=" h-2/3  w-11/12 bg-white flex justify-center items-center flex-col z-40 rounded-lg  overflow-scroll">
     //   <div className="my-10">
