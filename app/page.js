@@ -17,20 +17,25 @@ const { createContext } = require("react");
 export const productcon = createContext();
 
 export default function Home() {
-  const [state, setstate] = useState([
-    {
-      name: Home_Vastu_Kit,
-      num: 0,
-    },
-    {
-      name: BULL_FRAME,
-      num: 0,
-    },
-    {
-      name: HORSES,
-      num: 0,
-    },
-  ]);
+  const [state, setstate] = useState(
+    (localStorage && JSON.parse(localStorage.getItem("cart"))) || [
+      {
+        name: Home_Vastu_Kit,
+        num: 0,
+        price: 100,
+      },
+      {
+        name: BULL_FRAME,
+        num: 0,
+        price: 200,
+      },
+      {
+        name: HORSES,
+        num: 0,
+        price: 300,
+      },
+    ]
+  );
   const [opencart, setopencart] = useState(false);
   useEffect(() => {
     AOS.init({
@@ -43,28 +48,16 @@ export default function Home() {
     console.log(state);
     try {
       if (typeof window !== "undefined") {
-        localStorage.setItem("cart", state);
+        localStorage.setItem("cart", JSON.stringify(state));
       }
     } catch (error) {
       console.error("Error while setting token in localStorage:", error);
     }
-    
   }, [state]);
 
   return (
     <productcon.Provider value={state}>
       <main className="w-full overflow-x-hidden relative">
-        {opencart && (
-          <div className="fixed h-screen w-screen top-0 left-0 flex justify-center items-center z-30">
-            <div
-              className="absolute top-0 left-0 z-30 h-full w-full bg-black bg-opacity-20 "
-              onClick={() => {
-                setopencart(false);
-              }}
-            ></div>
-            <CartUi />
-          </div>
-        )}
         <Component setopencart={setopencart} />
         <div className="bg-main mt-20 md:mt-10" data-aos="zoom-in-down">
           <div className="bg-opacity-50 bg-black text-center flex flex-col items-center">
@@ -146,7 +139,9 @@ export default function Home() {
               <button
                 className="bg-green-400 px-3 py-2"
                 onClick={() => {
+                  console.log(state)
                   setstate((data) => {
+                    console.log(data);
                     let newdata = data.map((item) => {
                       if (item.name == Home_Vastu_Kit) {
                         item.num += 1;
@@ -186,6 +181,7 @@ export default function Home() {
                       if (item.name == BULL_FRAME) {
                         item.num += 1;
                       }
+                      return item
                     });
                     return newdata;
                   });
@@ -217,9 +213,10 @@ export default function Home() {
                 onClick={() => {
                   setstate((data) => {
                     let newdata = data.map((item) => {
-                      if (item.name == HORSES) {
+                      if (item?.name == HORSES) {
                         item.num += 1;
                       }
+                      return item
                     });
                     return newdata;
                   });
