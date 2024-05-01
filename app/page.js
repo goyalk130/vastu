@@ -17,24 +17,23 @@ const { createContext } = require("react");
 export const productcon = createContext();
 
 export default function Home() {
-  const [state, setstate] = useState(
-    (localStorage && JSON.parse(localStorage.getItem("cart"))) || [
-      {
-        name: Home_Vastu_Kit,
-        num: 0,
-        price: 100,
-      },
-      {
-        name: BULL_FRAME,
-        num: 0,
-        price: 200,
-      },
-      {
-        name: HORSES,
-        num: 0,
-        price: 300,
-      },
-    ]
+  const [state, setstate] = useState([
+    {
+      name: Home_Vastu_Kit,
+      num: 0,
+      price: 100,
+    },
+    {
+      name: BULL_FRAME,
+      num: 0,
+      price: 200,
+    },
+    {
+      name: HORSES,
+      num: 0,
+      price: 300,
+    },
+  ]
   );
   const [opencart, setopencart] = useState(false);
   useEffect(() => {
@@ -48,6 +47,7 @@ export default function Home() {
     console.log(state);
     try {
       if (typeof window !== "undefined") {
+      
         localStorage.setItem("cart", JSON.stringify(state));
       }
     } catch (error) {
@@ -139,7 +139,7 @@ export default function Home() {
               <button
                 className="bg-green-400 px-3 py-2"
                 onClick={() => {
-                  console.log(state)
+                  console.log(state);
                   setstate((data) => {
                     console.log(data);
                     let newdata = data.map((item) => {
@@ -181,7 +181,7 @@ export default function Home() {
                       if (item.name == BULL_FRAME) {
                         item.num += 1;
                       }
-                      return item
+                      return item;
                     });
                     return newdata;
                   });
@@ -216,7 +216,7 @@ export default function Home() {
                       if (item?.name == HORSES) {
                         item.num += 1;
                       }
-                      return item
+                      return item;
                     });
                     return newdata;
                   });
