@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-const WhyUs = () => {
+const WhyUs = ({heading,para}) => {
   useEffect(() => {
     AOS.init({
          duration: 1000,
@@ -14,12 +14,11 @@ const WhyUs = () => {
         <img src="/chair.png" />
       </div>
       <div>
-        <h2 className="text-xl font-bold">Positive Energy Flow</h2>
+        <h2 className="text-xl font-bold">{heading}</h2>
       </div>
       <div>
         <p className="text-center opacity-70">
-          Vastu principles aim to ensure a smooth and positive flow of energy
-          throughout the home.
+         {para}
         </p>
       </div>
 

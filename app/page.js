@@ -12,11 +12,13 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import CartUi from "./components/CartUi";
 import { BULL_FRAME, HORSES, Home_Vastu_Kit } from "../lib/Constant/constant";
+import { useRouter } from "next/navigation";
 const { createContext } = require("react");
 
 export const productcon = createContext();
 
 export default function Home() {
+  const router = useRouter();
   const [state, setstate] = useState([
     {
       name: Home_Vastu_Kit,
@@ -33,8 +35,7 @@ export default function Home() {
       num: 0,
       price: 300,
     },
-  ]
-  );
+  ]);
   const [opencart, setopencart] = useState(false);
   useEffect(() => {
     AOS.init({
@@ -43,11 +44,44 @@ export default function Home() {
     });
   }, []);
 
+  const whyuscon = [
+    {
+      heading: "Positive Energy Flow",
+      para: "Vastu principles aim to ensure a smooth and positive flow of energy throughout the home.",
+    },
+    {
+      heading: "Improved Health",
+      para: "Properly designed spaces, according to Vastu, can support physical and mental well-being.",
+    },
+    {
+      heading: "Financial Prosperity",
+      para: "Vastu can align the energy of a space to attract financial opportunities and wealth",
+    },
+    {
+      heading: "Career Success",
+      para: "Vastu can be applied to workspaces to support career growth and success.",
+    },
+    {
+      heading: "Boost Relationships",
+      para: "Vastu helps foster positive relationships by promoting better communication and understanding.",
+    },
+    {
+      heading: "Clarity and Vision",
+      para: "Vastu helps to promote mental clarity, clear thinking, and enhanced decision-making abilities.",
+    },
+    {
+      heading: "Eliminates Negativity",
+      para: "Vastu helps to ward off negative energies and protect spaces from external low energies.",
+    },
+    {
+      heading: "Balancing Elements",
+      para: "Vastu aims to balance all five elements—earth, water, fire, air, and space—and create a balanced environment.",
+    },
+  ];
   useEffect(() => {
     console.log(state);
     try {
       if (typeof window !== "undefined") {
-      
         localStorage.setItem("cart", JSON.stringify(state));
       }
     } catch (error) {
@@ -58,7 +92,7 @@ export default function Home() {
   return (
     <productcon.Provider value={state}>
       <main className="w-full overflow-x-hidden relative">
-        <Component setopencart={setopencart} />
+        <Component />
         <div className="bg-main mt-20 md:mt-10" data-aos="zoom-in-down">
           <div className="bg-opacity-50 bg-black text-center flex flex-col items-center">
             <div className="flex flex-col flex-grow justify-around items-center p-8 md:p-16 lg:p-36 gap-5">
@@ -109,16 +143,17 @@ export default function Home() {
           </div>
         </div>
         <Second />
-        <div className="flex flex-col items-center mt-20 md:mt-10 gap-3">
-          <h1 className="text-4xl ">Our Products</h1>
+        <div className="flex flex-col items-center  mt-20 md:my-10 gap-3 ">
+          <h1 className="text-4xl font-bold  ">Our Products</h1>
           <p className=" mx-10 md:mx-32 lg:mx-60 opacity-60">
             We gather to make our commitment to become free from suffering, help
             people with their spiritual growth and provide a safe and friendly
             space for nurturing holistic well-being.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row flex-wrap flex-grow-0 bg-white gap-10 md:gap-0  py-12  w-full md:full px-10 ">
-          <div className="flex-grow    flex gap-5 flex-col sm:flex-row  md:flex-col md:w-1/3   items-center  ">
+        <div  className="flex flex-col md:flex-row flex-wrap flex-grow-0 bg-white gap-10 md:gap-0  py-12  w-full md:full px-10 relative bg-bg bg-cover !text-white">
+          <div className="absolute top-0 left-0 h-full w-full bg-black z-0 bg-opacity-75"></div>
+          <div className="flex-grow  relative  flex gap-5 flex-col sm:flex-row  md:flex-col md:w-1/3   items-center z-10 ">
             <img
               className=" aspect-auto  object-cover h-48 lg:h-60"
               src="/kit.jpg"
@@ -150,13 +185,15 @@ export default function Home() {
                     });
                     return newdata;
                   });
+
+                  router.push("/buy");
                 }}
               >
                 Add to Cart
               </button>
             </div>
           </div>
-          <div className="flex-grow flex gap-10 md:border-solid border-opacity-10  md:border-2 md:border-x-2 md:border-black md:border-y-0  flex-col sm:flex-row md:flex-col items-center  md:w-1/3 ">
+          <div className="flex-grow relative flex gap-10 md:border-solid border-opacity-10  md:border-2 md:border-x-2 md:border-black md:border-y-0  flex-col sm:flex-row md:flex-col items-center  md:w-1/3 z-10 ">
             <img
               className=" aspect-auto object-cover h-48 lg:h-60"
               src="/bull.png"
@@ -185,13 +222,14 @@ export default function Home() {
                     });
                     return newdata;
                   });
+                  router.push("/buy");
                 }}
               >
                 Add to Cart
               </button>
             </div>
           </div>
-          <div className="flex-grow flex gap-5 flex-col sm:flex-row md:flex-col  items-center  md:w-1/3 ">
+          <div className="flex-grow relative flex gap-5 flex-col sm:flex-row md:flex-col  items-center  md:w-1/3 z-10">
             <img
               className=" aspect-auto object-cover h-48 lg:h-60"
               src="/horse.png"
@@ -220,6 +258,7 @@ export default function Home() {
                     });
                     return newdata;
                   });
+                  router.push("/buy");
                 }}
               >
                 Add to Cart
@@ -235,14 +274,9 @@ export default function Home() {
             Few reasons why Vastu really matters!
           </div>
           <div className="grid  sm:grid-cols-2 md:grid-cols-3 gap-10 lg:grid-cols-4	px-10  lg:px-20  py-10 bg-gray-200">
-            <WhyUs />
-            <WhyUs />
-            <WhyUs />
-            <WhyUs />
-            <WhyUs />
-            <WhyUs />
-            <WhyUs />
-            <WhyUs />
+            
+            {whyuscon.map(item=><WhyUs heading={item.heading} para={item.para} />)}
+            
           </div>
         </div>
 
@@ -268,8 +302,10 @@ export default function Home() {
                 parturient platea.
               </p>
               <div>
-                <button className="bg-orange-200 px-8 py-4 uppercase font-semibold text-amber-700">
-                  Discover more
+                <button onClick={()=>{
+                  router.push("/contact")
+                }} className="bg-orange-200 px-8 py-4 uppercase font-semibold text-amber-700">
+                  Contact us
                 </button>
               </div>
             </div>
@@ -278,14 +314,11 @@ export default function Home() {
             <Buy />
             <Buy />
             <Buy />
-            <Buy />
-            <Buy />
-            <Buy />
           </div>
         </div>
         <div className="bg-bulb px-5 py-20 md:p-40 relative">
           <div className="h-full w-full bg-black absolute top-0 z-0 left-0 bg-opacity-30"></div>
-          <div className="flex flex-col z-20 relative justify-center items-center gap-10">
+          <div className="flex flex-col z-10 relative justify-center items-center gap-10">
             <div>
               {" "}
               <h1 className="text-5xl text-white font-bold">Bring Success</h1>

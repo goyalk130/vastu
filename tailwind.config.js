@@ -21,6 +21,7 @@ module.exports = {
         main: "url('/main.jpg')",
         vastu: "url('/vastu.jpg')",
         bulb: "url('/bulb.jpg')",
+        bg: "url('/bg.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",
