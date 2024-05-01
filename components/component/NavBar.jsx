@@ -17,7 +17,7 @@ export function Component({setopencart}) {
   const cartcontext = useContext(productcon)
   console.log(cartcontext)
   return (
-    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 fixed top-0 z-20 bg-amber-400">
+    <header className="flex justify-end h-20 w-full shrink-0 items-center px-4 md:px-6 fixed top-0 z-20 bg-amber-400">
       <Sheet>
         <SheetTrigger asChild>
           <Button className="lg:hidden" size="icon" variant="outline">
