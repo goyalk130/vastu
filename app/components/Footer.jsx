@@ -12,10 +12,10 @@ const Footer = () => {
              <img src="/logo.png" className="h-32" />
             </div>
 
-            <p class="mt-4 max-w-xs text-gray-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-              cupiditate quae nam molestias.
-            </p>
+
+
+
+
 
             <ul class="mt-8 flex gap-6">
               <li>

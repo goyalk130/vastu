@@ -290,7 +290,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="p-20 px-5 md:px-20 flex flex-col  gap-12">
+        {/*<div className="p-20 px-5 md:px-20 flex flex-col  gap-12">
           <div className="grid md:grid-cols-2 gap-5  md:gap-20">
             <div className="text-5xl font-bold">
               Where Designers Thrive, Creativity Flows, and Teams Grow.
@@ -311,12 +311,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <Buy />
             <Buy />
             <Buy />
-          </div> */}
-        </div>
+          </div> 
+        </div>*/}
         <div className="bg-bulb px-5 py-20 md:p-40 relative">
           <div className="h-full w-full bg-black absolute top-0 z-0 left-0 bg-opacity-30"></div>
           <div className="flex flex-col z-10 relative justify-center items-center gap-10">
