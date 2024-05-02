@@ -93,7 +93,7 @@ export default function Home() {
     <productcon.Provider value={state}>
       <main className="w-full overflow-x-hidden relative">
         <Component />
-        <div className="bg-main mt-20 md:mt-10" data-aos="zoom-in-down">
+        <div id="home" className="bg-main mt-20 md:mt-10" data-aos="zoom-in-down">
           <div className="bg-opacity-50 bg-black text-center flex flex-col items-center">
             <div className="flex flex-col flex-grow justify-around items-center p-8 md:p-16 lg:p-36 gap-5">
               <div>
@@ -151,7 +151,7 @@ export default function Home() {
             space for nurturing holistic well-being.
           </p>
         </div>
-        <div  className="flex flex-col md:flex-row flex-wrap flex-grow-0 bg-white gap-10 md:gap-0  py-12  w-full md:full px-10 relative bg-bg bg-cover !text-white">
+        <div id="service"  className="flex flex-col md:flex-row flex-wrap flex-grow-0 bg-white gap-10 md:gap-0  py-12  w-full md:full px-10 relative bg-bg bg-cover !text-white">
           <div className="absolute top-0 left-0 h-full w-full bg-black z-0 bg-opacity-75"></div>
           <div className="flex-grow  relative  flex gap-5 flex-col sm:flex-row  md:flex-col md:w-1/3   items-center z-10 ">
             <img
