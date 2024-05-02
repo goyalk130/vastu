@@ -283,9 +283,10 @@ export default function Home() {
         <div className="bg-gray-100 py-20 px-5 md:px-20 flex gap-8 flex-col">
           <div className="font-bold text-4xl">How it Works</div>
           <div className="w-full grid  md:grid-cols-3 gap-10 ">
-            <Step />
-            <Step />
-            <Step />
+            <Step num="01" heading={"Visit out site"} para={"On our website you'll find content related to Vastu"}  />
+            <Step num="02" heading={"Choose product"} para={"on our website you have multiple options to choose from , add product to cart"}  />
+            <Step num="03" heading={"Buy our products"} para={"You'll be redirected to Payment page then buy and explore the world of vastu"}  />
+            
           </div>
         </div>
 
@@ -310,11 +311,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <Buy />
             <Buy />
             <Buy />
-          </div>
+          </div> */}
         </div>
         <div className="bg-bulb px-5 py-20 md:p-40 relative">
           <div className="h-full w-full bg-black absolute top-0 z-0 left-0 bg-opacity-30"></div>

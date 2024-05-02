@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-const Step = () => {
+const Step = ({num,heading,para}) => {
   useEffect(() => {
     AOS.init({
          duration: 1000,
@@ -11,12 +11,11 @@ const Step = () => {
  }, [])
   return (
     <div data-aos="fade-up" className="bg-gray-200 p-10 flex justify-center items-center">
-            <h3 className=" text-7xl sm:text-9xl font-bold opacity-20">01</h3>
+            <h3 className=" text-7xl sm:text-9xl font-bold opacity-20">{num}</h3>
             <div className="flex flex-col">
-              <h3 className="font-semibold">Free Consultations</h3>
+              <h3 className="font-semibold">{heading}</h3>
               <p className="opacity-70">
-                Urna dui egestas consectetuer proin ut penatibus nisi nec
-                blandit pede integer
+                {para}
               </p>
             </div>
           </div>
